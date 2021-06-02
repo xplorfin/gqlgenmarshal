@@ -198,7 +198,7 @@ func (g *Generator) build(runs [][]Value, typeName string) {
 		g.Printf("\t\t*i = %[1]s\n", v.name)
 	}
 	g.Printf("\tdefault:\n")
-	g.Printf("\t\treturn fmt.Errorf(\"unknown %[1]s value %[2]s\", check)", typeName, "%[1]s")
+	g.Printf("\t\treturn fmt.Errorf(\"unknown %[1]s value %[2]s\", check)", typeName, "%[1]v")
 
 	g.Printf("\n\t}\n")
 	g.Printf("\n\treturn nil\n")
@@ -223,6 +223,6 @@ const marshalFuncString = `func (i %[1]s) MarshalGQL(w io.Writer) {
 const unmarshalFuncString = `func (i *%[1]s) UnmarshalGQL(v interface{}) error {
 	check, ok := v.(%[2]s)
 	if !ok {
-		return fmt.Errorf("%[1]s must be a valid %[2]s value")
+		return fmt.Errorf("%[1]s must be a valid %[2]v value")
 	}
 `
