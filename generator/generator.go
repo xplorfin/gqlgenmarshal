@@ -6,11 +6,9 @@ import (
 	"go/ast"
 	"go/format"
 	"io/ioutil"
-	_ "io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
-	_ "path/filepath"
 	"strings"
 
 	"golang.org/x/tools/go/packages"
